@@ -2,7 +2,6 @@ import React from 'react';
 import Link from 'next/link';
 import {
   useColorMode,
-  useColorModeValue,
   Grid,
   Flex,
   VStack,
@@ -70,7 +69,7 @@ const Navigation: React.FC = () => {
             {config.auther.name}
           </ChakraLink>
         </Link>
-        <Text mt="3" color={useColorModeValue('gray.600', 'white')} fontSize="md">
+        <Text mt="3" color={colorMode === `light` ? 'gray.600' : 'white'} fontSize="md">
           {config.description}
         </Text>
       </Flex>
@@ -84,7 +83,7 @@ const Navigation: React.FC = () => {
                 <ChakraLink
                   as="a"
                   textDecoration="none"
-                  color={useColorModeValue('gray.600', 'white')}
+                  color={colorMode === `light` ? 'gray.600' : 'white'}
                   fontSize="md"
                   borderBottomColor={'transparent'}
                   borderBottomWidth="1px"
