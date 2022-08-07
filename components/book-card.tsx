@@ -1,19 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import Axios from 'axios';
+import _ from 'lodash';
 import { useColorModeValue, Box, Link, Text, Skeleton } from '@chakra-ui/react';
 import { ExternalLinkIcon } from '@chakra-ui/icons';
-import _ from 'lodash';
+
+import { BookDataType } from '@/types/now';
 
 const BOOK_LIST_URL = `https://haklee-notes-api.web.app/book/recently_read`;
 
-interface dataType {
-  name: string;
-  author: string;
-  code: string;
-}
-
 const BookCard: React.FC = () => {
-  const [data, setData] = useState<dataType[]>();
+  const [data, setData] = useState<BookDataType[]>();
 
   useEffect(() => {
     Axios.get(BOOK_LIST_URL)
@@ -44,24 +40,16 @@ const BookCard: React.FC = () => {
                 <Skeleton height={3.5} mt={2.5} />
               </Box>
             ))
-          : data.map((book: dataType, i: number) => (
+          : data.map((book: BookDataType, i: number) => (
               <Box key={i} mb={2}>
                 <Link
                   href={`https://ridibooks.com/books/${book.code}`}
                   target="_blank"
+                  variant="underline"
                   fontSize="md"
                   fontWeight="bold"
-                  textDecoration="none"
                   lineHeight="0"
                   title={`Read more about ${book.name} on RIDI`}
-                  borderBottomColor="transparent"
-                  borderBottomWidth="1px"
-                  borderBottomStyle="solid"
-                  transition="all 0.3s ease-in-out"
-                  _hover={{
-                    color: 'pink.400',
-                    borderBottomColor: 'pink.400',
-                  }}
                 >
                   {book.name} <ExternalLinkIcon mx="2px" />
                 </Link>

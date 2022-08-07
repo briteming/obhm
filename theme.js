@@ -68,6 +68,20 @@ const customTheme = extendTheme({
         }),
       },
     },
+    Link: {
+      baseStyle: (props) => ({
+        textDecoration: 'none',
+        transition: 'all 0.3s ease-in-out',
+      }),
+      variants: {
+        underline: (props) => ({
+          borderBottomColor: 'transparent',
+          borderBottomWidth: '1px',
+          borderBottomStyle: 'solid',
+          _hover: { color: 'pink.400', borderBottomColor: 'pink.400', textDecoration: 'none' },
+        }),
+      },
+    },
   },
   styles: {
     global: (props) => ({
@@ -83,14 +97,7 @@ const customTheme = extendTheme({
       a: {
         color: mode('gray.800', 'white')(props),
         fontFamily: 'body',
-        borderBottomWidth: '1px',
-        borderBottomColor: 'transparent',
-        transition: 'all 0.1s ease-in-out',
-        _hover: {
-          color: mode('primary.500', 'primary.400')(props),
-          borderBottomColor: mode('primary.500', 'primary.400')(props),
-          borderBottomWidth: '1px',
-        },
+        transition: 'all 0.3s ease-in-out',
       },
       h1: {
         fontSize: 'xl',
@@ -136,6 +143,7 @@ const customTheme = extendTheme({
       },
     }),
   },
+  shadows: { outline: '0 0 0 2px var(--chakra-colors-pink-300)' },
 });
 
 export default customTheme;

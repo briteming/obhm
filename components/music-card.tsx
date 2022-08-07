@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Axios from 'axios';
+import _ from 'lodash';
 import {
   useColorModeValue,
   SimpleGrid,
@@ -12,7 +13,8 @@ import {
   Skeleton,
   SkeletonCircle,
 } from '@chakra-ui/react';
-import _ from 'lodash';
+
+import { MusicDataType } from '@/types/now';
 
 const bounce = keyframes`
   10% {
@@ -36,14 +38,8 @@ const animation = `${bounce} 2.2s ease infinite alternate`;
 
 const TOP_ARTISTS_URL = `https://haklee-notes-api.web.app/spotify/top_artists`;
 
-interface dataType {
-  name: string;
-  image: string;
-  link: string;
-}
-
 const MusicCard: React.FC = () => {
-  const [data, setData] = useState<dataType[]>();
+  const [data, setData] = useState<MusicDataType[]>();
 
   useEffect(() => {
     Axios.get(TOP_ARTISTS_URL)
@@ -76,7 +72,7 @@ const MusicCard: React.FC = () => {
               </Center>
             ))}
           {data &&
-            data.map((artist: dataType, i: number) => (
+            data.map((artist: MusicDataType, i: number) => (
               <Center mb="auto" textAlign="center" flexDirection="column" key={i}>
                 <Link href={artist.link} title={`Listen to ${artist.name} now on Spotify`} target="_blank">
                   <Box

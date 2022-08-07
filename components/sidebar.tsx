@@ -15,7 +15,7 @@ import {
 } from '@chakra-ui/react';
 import { FaGithub, FaInstagram, FaLinkedinIn, FaRss, FaEnvelope, FaMoon, FaSun } from 'react-icons/fa';
 
-import config from '@/config/config';
+import { DESCRIPTION, AUTHOR, MENU, SOCIAL } from '@/config/config';
 import SocialIcon from '@/components/social-icon';
 
 const Navigation: React.FC = () => {
@@ -66,35 +66,27 @@ const Navigation: React.FC = () => {
               color: 'pink.400',
             }}
           >
-            {config.auther.name}
+            {AUTHOR.NAME}
           </ChakraLink>
         </Link>
         <Text mt="3" color={colorMode === `light` ? 'gray.600' : 'white'} fontSize="md">
-          {config.description}
+          {DESCRIPTION}
         </Text>
       </Flex>
 
       <VStack gap={{ base: '2', md: '8' }} alignItems={{ base: 'flex-end', md: 'flex-start' }}>
         {/* Menu */}
         <UnorderedList padding="0" listStyleType="none" marginInlineStart="0" spacing="3">
-          {config.menu.map((item) => (
-            <ListItem key={item.path} listStyleType="none">
-              <Link href={item.path} passHref>
+          {MENU.map(({ path, label }) => (
+            <ListItem key={path} listStyleType="none">
+              <Link href={path} passHref>
                 <ChakraLink
                   as="a"
-                  textDecoration="none"
+                  variant="underline"
                   color={colorMode === `light` ? 'gray.600' : 'white'}
                   fontSize="md"
-                  borderBottomColor={'transparent'}
-                  borderBottomWidth="1px"
-                  borderBottomStyle="solid"
-                  transition="all 0.3s ease-in-out"
-                  _hover={{
-                    color: 'pink.400',
-                    borderBottomColor: 'pink.400',
-                  }}
                 >
-                  {item.label}
+                  {label}
                 </ChakraLink>
               </Link>
             </ListItem>
@@ -103,19 +95,19 @@ const Navigation: React.FC = () => {
 
         {/* Social Icons */}
         <SimpleGrid mt="4" spacingX="4" spacingY="2" columns={3} display={{ base: 'none', md: 'grid' }}>
-          <SocialIcon href={`https://github.com/${config.social.github}`} label="Link to Github">
+          <SocialIcon href={`https://github.com/${SOCIAL.GITHUB}`} label="Link to Github">
             <FaGithub />
           </SocialIcon>
-          <SocialIcon href={`https://instagram.com/${config.social.instagram}`} label="Link to Instagram">
+          <SocialIcon href={`https://instagram.com/${SOCIAL.INSTAGRAM}`} label="Link to Instagram">
             <FaInstagram />
           </SocialIcon>
-          <SocialIcon href={`https://linkedin.com/in/${config.social.linkedIn}`} label="Link to Linkedin">
+          <SocialIcon href={`https://linkedin.com/in/${SOCIAL.LINKEDIN}`} label="Link to Linkedin">
             <FaLinkedinIn />
           </SocialIcon>
-          <SocialIcon href={`https://github.com/${config.social.github}`} label="Link to RSS">
+          <SocialIcon href={`https://github.com/${SOCIAL.GITHUB}`} label="Link to RSS">
             <FaRss />
           </SocialIcon>
-          <SocialIcon href={`mailto:${config.social.email}`} label="Write an Email">
+          <SocialIcon href={`mailto:${SOCIAL.GITHUB}`} label="Write an Email">
             <FaEnvelope />
           </SocialIcon>
         </SimpleGrid>

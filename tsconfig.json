@@ -5,7 +5,6 @@
     "baseUrl": ".",
     "paths": {
       "@/components/*": ["components/*"],
-      "@/styles/*": ["styles/*"],
       "@/config/*": ["./*"],
       "@/utils/*": ["utils/*"],
       "@/libs/*": ["libs/*"],
@@ -24,6 +23,6 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "utils/index.js"],
   "exclude": ["node_modules"]
 }

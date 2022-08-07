@@ -1,30 +1,5 @@
-import type { NextPage } from 'next';
+import { getStaticProps } from "./page/[page_index]";
+import BlogPage from "./page/[page_index]";
 
-import { Flex, Heading, IconButton, useDisclosure } from '@chakra-ui/react';
-import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
-
-import Layout from '@/components/layout';
-import Now from '@/components/now';
-
-const Home: NextPage = () => {
-  const { isOpen, onToggle } = useDisclosure();
-
-  return (
-    <Layout>
-      <Flex justifyContent="space-between" alignItems="baseline" width="100%">
-        <Heading fontSize="md">Now</Heading>
-        <IconButton
-          width="4"
-          aria-label="Hide All Now"
-          colorScheme="gray"
-          isRound
-          onClick={onToggle}
-          icon={isOpen ? <FaChevronDown /> : <FaChevronUp />}
-        />
-      </Flex>
-      <Now isOpen={!isOpen} />
-    </Layout>
-  );
-};
-
-export default Home;
+export { getStaticProps };
+export default BlogPage;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ChakraProvider, Container, Grid, Box } from '@chakra-ui/react';
+import { ChakraProvider, Container, Grid, Box, Text, Link } from '@chakra-ui/react';
 
 import customTheme from '@/config/theme';
 import Sidebar from '@/components/sidebar';
@@ -29,7 +29,18 @@ const Layout: React.FC<SitePageContext> = ({ children }) => {
               width="1px"
               display={{ base: 'none', md: 'none', lg: 'block' }}
             />
-            <Box as="main">{children}</Box>
+            <Box as="main">
+              <>
+                {children}
+                <Text fontSize="xs" textAlign="center">
+                  © 2022 Hak Lee. Designed by desktopofsamuel(
+                  <Link href="https://notes.desktopofsamuel.com/" target="_blank" variant="underline">
+                    notes-3
+                  </Link>
+                  ).
+                </Text>
+              </>
+            </Box>
           </Grid>
         </Container>
       </ChakraProvider>
