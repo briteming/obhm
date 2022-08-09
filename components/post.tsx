@@ -12,19 +12,19 @@ export default function Post({ post }: { post: PostType }) {
         <Text as="time" fontSize="sm" fontWeight="bold" textTransform="uppercase">
           {dayjs(post.frontmatter.date).format(`MMMM YYYY`)}
         </Text>
-        <Text variant="small" fontSize="sm" color="secondary.400" fontWeight="bold">
+        <Text variant="small" fontSize="sm" color="pink.400" fontWeight="bold">
           {post.frontmatter.category}
         </Text>
       </HStack>
-      <Link href={`/posts/${post.frontmatter.slug}`} passHref>
-        <Heading w="100%" variant="title" mt="0">
+      <Link href={`/posts/${post.slug}`} passHref>
+        <Heading as="a" w="100%" variant="title" mt="0">
           {post.frontmatter.title}
         </Heading>
       </Link>
       <Text noOfLines={3} my="2">
         {post.excerpt}
       </Text>
-      <Link href={`/posts/${post.frontmatter.slug}`} passHref>
+      <Link href={`/posts/${post.slug}`} passHref>
         <Button as="a" rightIcon={<ArrowForwardIcon />} variant="ghost" ml="-18px">
           Read more
         </Button>

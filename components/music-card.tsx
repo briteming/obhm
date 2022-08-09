@@ -62,7 +62,7 @@ const MusicCard: React.FC = () => {
         transition="all 0.2s ease-in-out"
         _hover={{ boxShadow: 'base' }}
       >
-        <Text variant="small">🎧 Recently Listened</Text>
+        <Text variant="cardTitle">🎧 Recently Listened</Text>
         <SimpleGrid pt={2} columns={2} row={2} spacingX={2} spacingY={4} alignItems="center" justifyContent="center">
           {!data &&
             _.range(4).map((_, i: number) => (

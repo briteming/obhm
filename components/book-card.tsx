@@ -32,7 +32,7 @@ const BookCard: React.FC = () => {
         transition="all 0.2s ease-in-out"
         _hover={{ boxShadow: 'base' }}
       >
-        <Text variant="small">📚 Recently Read</Text>
+        <Text variant="cardTitle">📚 Recently Read</Text>
         {!data
           ? _.range(4).map((_, i: number) => (
               <Box key={i} py={2}>

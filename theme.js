@@ -8,8 +8,6 @@ const customTheme = extendTheme({
   },
   fonts: {
     body: '-apple-system, BlinkMacSystemFont, Apple SD Gothic Neo, Pretendard, Roboto, Noto Sans KR, Segoe UI, Malgun Gothic, sans-serif',
-    heading:
-      '-apple-system, BlinkMacSystemFont, Apple SD Gothic Neo, Pretendard, Roboto, Noto Sans KR, Segoe UI, Malgun Gothic, sans-serif',
     mono: 'JetBrains Mono, SFMono-Regular, Pretendard, Menlo, Consolas, PT Mono, Liberation Mono, Courier, monospace',
   },
   colors: {
@@ -32,6 +30,7 @@ const customTheme = extendTheme({
           textDecoration: 'none',
         },
       }),
+      variants: {},
     },
     Heading: {
       baseStyle: {
@@ -48,9 +47,6 @@ const customTheme = extendTheme({
           my: '0',
           lineHeight: 'tall',
         },
-        heading: {
-          fontSize: '3xl',
-        },
       },
       defaultProps: {
         variant: 'pagetitle',
@@ -61,9 +57,10 @@ const customTheme = extendTheme({
         transition: 'all 0.1s ease-in-out',
       }),
       variants: {
-        small: (props) => ({
+        cardTitle: (props) => ({
           margin: '0',
           marginBottom: '2',
+          color: mode('gray.800', 'white')(props),
           fontSize: 'sm',
         }),
       },
@@ -91,7 +88,7 @@ const customTheme = extendTheme({
       },
       p: {
         my: '4',
-        color: mode('gray.800', 'white')(props),
+        color: mode('gray.600', 'indigo.300')(props),
         fontFamily: 'body',
       },
       a: {
@@ -100,6 +97,7 @@ const customTheme = extendTheme({
         transition: 'all 0.3s ease-in-out',
       },
       h1: {
+        color: mode('gray.800', 'white')(props),
         fontSize: 'xl',
         fontWeight: 'bold',
         fontFamily: 'body',
@@ -107,6 +105,7 @@ const customTheme = extendTheme({
         mb: '4',
       },
       h2: {
+        color: mode('gray.800', 'white')(props),
         fontSize: '2xl',
         fontWeight: 'bold',
         fontFamily: 'body',
@@ -115,6 +114,7 @@ const customTheme = extendTheme({
         mb: '4',
       },
       h3: {
+        color: mode('gray.800', 'white')(props),
         fontSize: 'md',
         fontWeight: 'bold',
         fontFamily: 'body',
@@ -137,6 +137,9 @@ const customTheme = extendTheme({
         fontSize: 'lg',
         fontStyle: 'italic',
         fontFamily: 'body',
+      },
+      time: {
+        color: mode('gray.800', 'white')(props),
       },
       '*::selection': {
         background: mode('blackAlpha.200', 'whiteAlpha.200')(props),
