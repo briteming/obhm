@@ -56,10 +56,7 @@ export async function getStaticPaths() {
   let paths = [];
   for (let i = 1; i <= numPages; i++) paths.push({ params: { page_index: i.toString() } });
 
-  return {
-    paths,
-    fallback: false,
-  };
+  return { paths, fallback: false };
 }
 
 export async function getStaticProps({ params }: { params: any }) {
@@ -69,11 +66,5 @@ export async function getStaticProps({ params }: { params: any }) {
   const pageIndex = page - 1;
   const orderedPosts = files.sort(sortByDate).slice(pageIndex * POSTS_PER_PAGE, (pageIndex + 1) * POSTS_PER_PAGE);
 
-  return {
-    props: {
-      posts: orderedPosts,
-      numPages,
-      currentPage: page,
-    },
-  };
+  return { props: { posts: orderedPosts, numPages, currentPage: page } };
 }
