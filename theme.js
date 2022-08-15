@@ -84,7 +84,7 @@ const customTheme = extendTheme({
     global: (props) => ({
       body: {
         lineHeight: 'taller',
-        background: mode('white', 'indigo.900')(props),
+        backgroundColor: mode('white.200', 'indigo.900')(props),
       },
       p: {
         my: '4',
