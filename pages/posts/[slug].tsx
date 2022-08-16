@@ -21,10 +21,10 @@ export default function PostPage({ frontmatter, content, slug, excerpt }: PostTy
           <Text
             as="a"
             fontSize="sm"
-            color="pink.400"
+            color="gray.400"
             fontWeight="bold"
             _hover={{
-              color: 'pink.300',
+              color: 'gray.300',
             }}
           >
             {frontmatter.category}

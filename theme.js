@@ -34,16 +34,19 @@ const customTheme = extendTheme({
     },
     Heading: {
       baseStyle: {
+        fontFamily: 'body',
         fontSize: '2xl',
       },
       variants: {
         pagetitle: {
+          fontWeight: 'extrabold',
           fontSize: '4xl',
           mt: '0',
           mb: '8',
         },
-        title: {
-          fontSize: '2xl',
+        PostTitle: {
+          fontWeight: 'extrabold',
+          fontSize: '1.6rem',
           my: '0',
           lineHeight: 'tall',
         },
@@ -54,6 +57,7 @@ const customTheme = extendTheme({
     },
     Text: {
       baseStyle: (props) => ({
+        fontFamily: 'body',
         transition: 'all 0.1s ease-in-out',
       }),
       variants: {
@@ -90,6 +94,7 @@ const customTheme = extendTheme({
         my: '4',
         color: mode('gray.600', 'indigo.300')(props),
         fontFamily: 'body',
+        lineHeight: '1.75',
       },
       a: {
         color: mode('gray.800', 'white')(props),
@@ -100,7 +105,6 @@ const customTheme = extendTheme({
         color: mode('gray.800', 'white')(props),
         fontSize: 'xl',
         fontWeight: 'bold',
-        fontFamily: 'body',
         mt: '8',
         mb: '4',
       },
@@ -108,7 +112,6 @@ const customTheme = extendTheme({
         color: mode('gray.800', 'white')(props),
         fontSize: '2xl',
         fontWeight: 'bold',
-        fontFamily: 'body',
         lineHeight: 'taller',
         mt: '8',
         mb: '4',
@@ -117,18 +120,15 @@ const customTheme = extendTheme({
         color: mode('gray.800', 'white')(props),
         fontSize: 'md',
         fontWeight: 'bold',
-        fontFamily: 'body',
         mt: '8',
         mb: '4',
       },
       ul: {
         listStyle: 'square',
         my: '2',
-        fontFamily: 'body',
       },
       li: {
         color: mode('gray.600', 'indigo.300')(props),
-        fontFamily: 'body',
       },
       iframe: {
         py: '8',

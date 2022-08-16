@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import dayjs from 'dayjs';
-import { Button, HStack, Heading, Text, Box } from '@chakra-ui/react';
-import { ArrowForwardIcon } from '@chakra-ui/icons';
+import { HStack, Heading, Text, Box, Link as ChakraLink } from '@chakra-ui/react';
 
 import { PostType } from '@/types/post';
 
@@ -12,12 +11,31 @@ export default function Post({ post }: { post: PostType }) {
         <Text as="time" fontSize="sm" fontWeight="bold" textTransform="uppercase">
           {dayjs(post.frontmatter.date).format(`MMMM YYYY`)}
         </Text>
-        <Text variant="small" fontSize="sm" color="pink.400" fontWeight="bold">
-          {post.frontmatter.category}
-        </Text>
+        <Link href={`/category/${post.frontmatter.category}`} passHref>
+          <Text
+            as="a"
+            variant="small"
+            fontSize="sm"
+            color="gray.400"
+            fontWeight="bold"
+            _hover={{
+              color: 'gray.300',
+            }}
+          >
+            {post.frontmatter.category}
+          </Text>
+        </Link>
       </HStack>
       <Link href={`/posts/${post.slug}`} passHref>
-        <Heading as="a" w="100%" variant="title" mt="0">
+        <Heading
+          as="a"
+          w="100%"
+          variant="PostTitle"
+          mt="0"
+          _hover={{
+            color: 'pink.400',
+          }}
+        >
           {post.frontmatter.title}
         </Heading>
       </Link>
@@ -25,9 +43,9 @@ export default function Post({ post }: { post: PostType }) {
         {post.excerpt}
       </Text>
       <Link href={`/posts/${post.slug}`} passHref>
-        <Button as="a" rightIcon={<ArrowForwardIcon />} variant="ghost" ml="-18px">
-          Read more
-        </Button>
+        <ChakraLink as="a" variant="underline" fontSize="md" fontWeight="semibold">
+          Read More →
+        </ChakraLink>
       </Link>
     </Box>
   );
