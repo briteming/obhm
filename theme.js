@@ -30,7 +30,6 @@ const customTheme = extendTheme({
           textDecoration: 'none',
         },
       }),
-      variants: {},
     },
     Heading: {
       baseStyle: {
@@ -82,6 +81,17 @@ const customTheme = extendTheme({
           _hover: { color: 'pink.400', borderBottomColor: 'pink.400', textDecoration: 'none' },
         }),
       },
+    },
+  },
+  layerStyles: {
+    card: {
+      p: '4',
+      boxShadow: 'sm',
+      borderRadius: '16',
+      backgroundColor: 'gray.50',
+      transition: 'all 0.2s ease-in-out',
+      _hover: { boxShadow: 'base' },
+      '.chakra-ui-dark &': { backgroundColor: 'gray.700' },
     },
   },
   styles: {

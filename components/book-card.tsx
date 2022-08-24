@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Axios from 'axios';
 import _ from 'lodash';
-import { useColorModeValue, Box, Link, Text, Skeleton } from '@chakra-ui/react';
+import { Box, Link, Text, Skeleton } from '@chakra-ui/react';
 import { ExternalLinkIcon } from '@chakra-ui/icons';
 
 import { BookDataType } from '@/types/now';
@@ -22,16 +22,8 @@ const BookCard: React.FC = () => {
   }, []);
 
   return (
-    <React.Fragment>
-      <Box
-        gridColumn={{ base: 'span 2', md: 'initial' }}
-        p="4"
-        boxShadow="sm"
-        borderRadius="16"
-        backgroundColor={useColorModeValue('gray.50', 'gray.700')}
-        transition="all 0.2s ease-in-out"
-        _hover={{ boxShadow: 'base' }}
-      >
+    <>
+      <Box layerStyle="card">
         <Text variant="cardTitle">📚 Recently Read</Text>
         {!data
           ? _.range(4).map((_, i: number) => (
@@ -59,7 +51,7 @@ const BookCard: React.FC = () => {
               </Box>
             ))}
       </Box>
-    </React.Fragment>
+    </>
   );
 };
 

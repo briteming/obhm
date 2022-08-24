@@ -1,18 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Axios from 'axios';
 import _ from 'lodash';
-import {
-  useColorModeValue,
-  SimpleGrid,
-  Box,
-  Center,
-  Link,
-  Text,
-  Image,
-  keyframes,
-  Skeleton,
-  SkeletonCircle,
-} from '@chakra-ui/react';
+import { SimpleGrid, Box, Center, Link, Text, Image, keyframes, Skeleton, SkeletonCircle } from '@chakra-ui/react';
 
 import { MusicDataType } from '@/types/now';
 
@@ -52,16 +41,8 @@ const MusicCard: React.FC = () => {
   }, []);
 
   return (
-    <React.Fragment>
-      <Box
-        gridColumn={{ base: 'span 2', md: 'initial' }}
-        p="4"
-        boxShadow="sm"
-        borderRadius="16"
-        backgroundColor={useColorModeValue('gray.50', 'gray.700')}
-        transition="all 0.2s ease-in-out"
-        _hover={{ boxShadow: 'base' }}
-      >
+    <>
+      <Box layerStyle="card">
         <Text variant="cardTitle">🎧 Recently Listened</Text>
         <SimpleGrid pt={2} columns={2} row={2} spacingX={2} spacingY={4} alignItems="center" justifyContent="center">
           {!data &&
@@ -157,7 +138,7 @@ const MusicCard: React.FC = () => {
             ))}
         </SimpleGrid>
       </Box>
-    </React.Fragment>
+    </>
   );
 };
 
