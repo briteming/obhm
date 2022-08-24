@@ -85,6 +85,7 @@ const customTheme = extendTheme({
   },
   layerStyles: {
     card: {
+      gridColumn: { base: 'span 2', md: 'initial' },
       p: '4',
       boxShadow: 'sm',
       borderRadius: '16',
