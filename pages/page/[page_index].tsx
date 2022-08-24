@@ -6,6 +6,7 @@ import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
 import Layout from '@/components/layout';
 import Now from '@/components/now';
 import Post from '@/components/post';
+import Pagination from '@/components/pagination';
 import { getPosts } from '@/libs/posts';
 import { sortByDate } from '@/utils/index';
 import { POSTS_PER_PAGE } from '@/config/config';
@@ -45,6 +46,7 @@ export default function HomePage({
           <Post post={post} key={index} />
         ))}
       </VStack>
+      <Pagination currentPage={currentPage} numPages={numPages} />
     </Layout>
   );
 }
