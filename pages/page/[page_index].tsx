@@ -24,14 +24,14 @@ export default function HomePage({
   const { isOpen, onToggle } = useDisclosure();
 
   return (
-    <Layout>
+    <Layout title={currentPage == 1 ? '' : `전체 글 보기 - ` + currentPage + `페이지`}>
       {currentPage == 1 && (
         <>
           <Flex justifyContent="space-between" alignItems="baseline" width="100%">
             <Heading fontSize="md">Now</Heading>
             <IconButton
               width="4"
-              aria-label="Hide All Now"
+              aria-label={isOpen ? 'Open All Now' : 'Hide All Now'}
               colorScheme="gray"
               isRound
               onClick={onToggle}

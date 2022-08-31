@@ -1,16 +1,14 @@
 import React from 'react';
 import { ChakraProvider, Container, Grid, Box, Text, Link } from '@chakra-ui/react';
+import { NextSeo } from 'next-seo';
 
 import customTheme from '@/config/theme';
 import Sidebar from '@/components/sidebar';
 
-type SitePageContext = {
-  children: React.ReactNode;
-};
-
-const Layout: React.FC<SitePageContext> = ({ children }) => {
+const Layout: React.FC<LayoutProps> = ({ title, description, children }) => {
   return (
     <React.Fragment>
+      <NextSeo title={title} description={description} />
       <ChakraProvider theme={customTheme} resetCSS={true}>
         <Container maxW="container.lg">
           <Grid
@@ -49,3 +47,9 @@ const Layout: React.FC<SitePageContext> = ({ children }) => {
 };
 
 export default Layout;
+
+type LayoutProps = {
+  title?: string;
+  description?: string;
+  children: React.ReactNode;
+};

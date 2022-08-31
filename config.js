@@ -1,11 +1,11 @@
 module.exports = {
-  TITLE: `notes`,
+  TITLE: `Notes of Hak`,
   DESCRIPTION: `to ideal reality.`,
   LANG: `ko`,
   URL: `https://blog.haklee.me`,
-  repository: 'ohprettyhak/blog.haklee.me', // project repository
+  repository: `ohprettyhak/blog.haklee.me`, // project repository
   POSTS_PER_PAGE: 6,
-  UTTERANCES: 'ohprettyhak/blog-comment', // comment repository
+  UTTERANCES: `ohprettyhak/blog-comment`, // comment repository
 
   AUTHOR: {
     NAME: `Hak Lee`,
@@ -22,16 +22,23 @@ module.exports = {
   // menu
   MENU: [
     {
-      label: 'Articles',
+      label: 'All',
       path: '/',
     },
     {
       label: 'Travel',
-      path: '/travel',
+      path: '/category/travel',
+    },
+    {
+      label: 'Book',
+      path: '/category/book',
     },
     {
       label: 'About Me',
       path: '/about',
     },
   ],
+
+  OG_IMAGE: '/opengraph.png',
+  LOCALE: 'ko',
 };

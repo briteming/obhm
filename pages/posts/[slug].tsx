@@ -4,7 +4,7 @@ import path from 'path';
 import dayjs from 'dayjs';
 import matter from 'gray-matter';
 import { marked } from 'marked';
-import { Heading, UnorderedList, HStack, Wrap, Box, Text } from '@chakra-ui/react';
+import { Heading, UnorderedList, HStack, Wrap, Text } from '@chakra-ui/react';
 
 import Layout from '@/components/layout';
 import { PostType } from '@/types/post';
@@ -12,7 +12,7 @@ import { getExcerpt } from '@/libs/posts';
 
 export default function PostPage({ frontmatter, content, slug, excerpt }: PostType) {
   return (
-    <Layout>
+    <Layout title={frontmatter.title} description={excerpt}>
       <HStack spacing="2">
         <Text as="time" fontSize="sm" fontWeight="bold" textTransform="uppercase">
           {dayjs(frontmatter.date).format(`MMMM YYYY`)}
