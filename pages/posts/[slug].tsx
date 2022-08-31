@@ -4,15 +4,35 @@ import path from 'path';
 import dayjs from 'dayjs';
 import matter from 'gray-matter';
 import { marked } from 'marked';
+import { NextSeo } from 'next-seo';
 import { Heading, UnorderedList, HStack, Wrap, Text } from '@chakra-ui/react';
 
 import Layout from '@/components/layout';
+import Tag from '@/components/tag';
 import { PostType } from '@/types/post';
 import { getExcerpt } from '@/libs/posts';
+import { URL, AUTHOR, OG_IMAGE } from '@/config/config';
 
 export default function PostPage({ frontmatter, content, slug, excerpt }: PostType) {
   return (
     <Layout title={frontmatter.title} description={excerpt}>
+      <NextSeo
+        openGraph={{
+          url: URL + `/posts/` + slug,
+          type: 'article',
+          article: {
+            publishedTime: frontmatter.date,
+            tags: frontmatter.tags,
+            authors: [AUTHOR.NAME],
+          },
+          images: [
+            {
+              url: frontmatter.socialImage ? URL + frontmatter.socialImage : URL + OG_IMAGE,
+            },
+          ],
+        }}
+      />
+
       <HStack spacing="2">
         <Text as="time" fontSize="sm" fontWeight="bold" textTransform="uppercase">
           {dayjs(frontmatter.date).format(`MMMM YYYY`)}
@@ -35,14 +55,14 @@ export default function PostPage({ frontmatter, content, slug, excerpt }: PostTy
         {frontmatter.title}
       </Heading>
       <div dangerouslySetInnerHTML={{ __html: marked(content) }}></div>
-      <UnorderedList marginInlineStart="0">
+      <UnorderedList mt={8} marginInlineStart="0">
         <Wrap spacing="2">
-          {/* {frontmatter.tags &&
+          {frontmatter.tags &&
             frontmatter.tags.map((tag, index) => (
               <Tag href={tag} key={index}>
                 {tag}
               </Tag>
-            ))} */}
+            ))}
         </Wrap>
       </UnorderedList>
     </Layout>

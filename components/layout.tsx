@@ -30,7 +30,7 @@ const Layout: React.FC<LayoutProps> = ({ title, description, children }) => {
             <Box as="main">
               <>
                 {children}
-                <Text fontSize="xs" textAlign="center">
+                <Text mt={16} fontSize="xs" textAlign="center">
                   © 2022 Hak Lee. Designed by desktopofsamuel(
                   <Link href="https://notes.desktopofsamuel.com/" target="_blank" variant="underline">
                     notes-3
