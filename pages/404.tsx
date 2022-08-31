@@ -6,7 +6,7 @@ import Layout from '@/components/layout';
 
 export default function NotFoundPage() {
   return (
-    <Layout>
+    <Layout title="404">
       <Box my={24}>
         <Box display="flex" justifyContent="center">
           <FaRegFlushed size={64} />
