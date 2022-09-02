@@ -1,8 +1,10 @@
+import { useEffect } from 'react';
 import Link from 'next/link';
 import fs from 'fs';
 import path from 'path';
 import dayjs from 'dayjs';
 import matter from 'gray-matter';
+import Prism from 'prismjs';
 import { marked } from 'marked';
 import { NextSeo } from 'next-seo';
 import { Heading, UnorderedList, HStack, Wrap, Text } from '@chakra-ui/react';
@@ -13,7 +15,15 @@ import getExcerpt from '@/libs/getExcerpt';
 import { PostType } from '@/types/post';
 import { URL, AUTHOR, OG_IMAGE } from '@/config/config';
 
+import 'prismjs/components/prism-typescript.min';
+import 'prismjs/components/prism-jsx.min';
+import 'prismjs/components/prism-tsx.min';
+
 export default function PostPage({ frontmatter, content, slug, excerpt }: PostType) {
+  useEffect(() => {
+    Prism.highlightAll();
+  }, []);
+
   return (
     <Layout title={frontmatter.title} description={excerpt}>
       <NextSeo

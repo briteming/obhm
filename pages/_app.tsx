@@ -4,6 +4,7 @@ import { ChakraProvider } from '@chakra-ui/react';
 import NextNProgress from 'nextjs-progressbar';
 import 'pretendard/dist/web/static/pretendard.css';
 
+import '@/styles/prism-theme.css';
 import customTheme from '@/config/theme';
 import SEO from '@/config/seo-config';
 

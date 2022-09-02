@@ -173,6 +173,15 @@ const customTheme = extendTheme({
       '*::selection': {
         background: mode('blackAlpha.200', 'whiteAlpha.200')(props),
       },
+      "pre[class*='language-']": {
+        '.chakra-ui-dark &': { backgroundColor: 'whiteAlpha.100' },
+        '*::selection': {
+          background: mode('blackAlpha.200', 'whiteAlpha.200')(props),
+        },
+      },
+      "code[class*='language-']": {
+        '.chakra-ui-dark &': { color: 'white' },
+      },
     }),
   },
   shadows: { outline: '0 0 0 2px var(--chakra-colors-pink-300)' },
