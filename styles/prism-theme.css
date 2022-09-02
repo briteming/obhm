@@ -1,9 +1,3 @@
-/**
- * prism.js default theme for JavaScript, CSS and HTML
- * Based on dabblet (http://dabblet.com)
- * @author Lea Verou
- */
-
 code[class*='language-'],
 pre[class*='language-'] {
   color: black;
@@ -95,7 +89,7 @@ pre[class*='language-'] {
 .token.constant,
 .token.symbol,
 .token.deleted {
-  color: #905;
+  color: rgb(197, 0, 49);
 }
 
 .token.selector,
@@ -118,7 +112,7 @@ pre[class*='language-'] {
 .token.atrule,
 .token.attr-value,
 .token.keyword {
-  color: #07a;
+  color: rgb(0, 140, 201);
 }
 
 .token.function,
