@@ -82,6 +82,24 @@ const customTheme = extendTheme({
         }),
       },
     },
+    Tag: {
+      variants: {
+        subtle: {
+          container: {
+            px: '3',
+            py: '2',
+            borderRadius: 'full',
+            transition: 'all 0.3s ease-in-out',
+            backgroundColor: 'gray.100',
+            _hover: { backgroundColor: 'pink.400', color: 'white' },
+            '.chakra-ui-dark &': {
+              backgroundColor: 'gray.700',
+              _hover: { backgroundColor: 'pink.400', color: 'white' },
+            },
+          },
+        },
+      },
+    },
   },
   layerStyles: {
     card: {
