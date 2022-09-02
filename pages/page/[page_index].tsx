@@ -7,7 +7,7 @@ import Layout from '@/components/layout';
 import Now from '@/components/now';
 import Post from '@/components/post';
 import Pagination from '@/components/pagination';
-import { getPosts } from '@/libs/posts';
+import getPosts from '@/libs/getPosts';
 import { sortByDate } from '@/utils/index';
 import { POSTS_PER_PAGE } from '@/config/config';
 import { PostType } from '@/types/post';

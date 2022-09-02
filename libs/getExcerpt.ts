@@ -1,24 +1,3 @@
-import fs from 'fs';
-import path from 'path';
-import matter from 'gray-matter';
-
-import { sortByDate } from '@/utils/index';
-
-export const getPosts = () => {
-  const files = fs.readdirSync(path.join('content/posts'));
-  const posts = files.map((filename) => {
-    const markdownWithMeta = fs.readFileSync(path.join('content/posts', filename), 'utf-8');
-
-    const slug = filename.replace('.md', '');
-    const { data: frontmatter, content } = matter(markdownWithMeta);
-    const excerpt = getExcerpt(content, 300);
-
-    return { slug, frontmatter, excerpt };
-  });
-
-  return posts.filter((post) => post.frontmatter.draft === false).sort(sortByDate);
-};
-
 function parseMarkdown(markdownText: string, char: number) {
   const charLimit = char || 500;
   const htmlText = markdownText
@@ -48,7 +27,9 @@ function parseMarkdown(markdownText: string, char: number) {
   return htmlText.trim().slice(0, charLimit);
 }
 
-export const getExcerpt = (markdownText: string, char: number) => {
+const getExcerpt = (markdownText: string, char: number) => {
   const excerpt = parseMarkdown(markdownText, char);
   return excerpt;
 };
+
+export default getExcerpt;

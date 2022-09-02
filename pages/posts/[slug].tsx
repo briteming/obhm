@@ -9,8 +9,8 @@ import { Heading, UnorderedList, HStack, Wrap, Text } from '@chakra-ui/react';
 
 import Layout from '@/components/layout';
 import Tag from '@/components/tag';
+import getExcerpt from '@/libs/getExcerpt';
 import { PostType } from '@/types/post';
-import { getExcerpt } from '@/libs/posts';
 import { URL, AUTHOR, OG_IMAGE } from '@/config/config';
 
 export default function PostPage({ frontmatter, content, slug, excerpt }: PostType) {
