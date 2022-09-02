@@ -1,24 +1,29 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import { Heading } from '@chakra-ui/react';
+import { Heading, Text } from '@chakra-ui/react';
 import { NextSeo } from 'next-seo';
 
 import Layout from '@/components/layout';
 import Post from '@/components/post';
-import { getPosts } from '@/libs/posts';
+import getPosts from '@/libs/getPosts';
 import { URL } from '@/config/config';
 import { PostType } from '@/types/post';
 
-export default function CategoryPage({ posts, categoryName }: { posts: any; categoryName: string }) {
+export default function CategoryPage({ posts, categoryName }: { posts: PostType[]; categoryName: string }) {
   return (
-    <Layout title={`#${categoryName}`}>
+    <Layout title={`${categoryName} Archives`}>
       <NextSeo
         openGraph={{
           url: URL + `/category/` + categoryName,
         }}
       />
-      <Heading fontSize="3xl">#{categoryName}</Heading>
+      <Heading as="h1" fontSize="4xl" pb={0} mb={0}>
+        {categoryName} Archives
+      </Heading>
+      <Text mt={2} mb={8} fontWeight="semibold">
+        총 {posts.length}개의 포스트
+      </Text>
       {posts.map((post: PostType, index: number) => (
         <Post post={post} key={index} />
       ))}
