@@ -107,7 +107,7 @@ const Navigation: React.FC = () => {
           <SocialIcon href={`https://github.com/${SOCIAL.GITHUB}`} label="Link to RSS">
             <FaRss />
           </SocialIcon>
-          <SocialIcon href={`mailto:${SOCIAL.GITHUB}`} label="Write an Email">
+          <SocialIcon href={`mailto:${SOCIAL.EMAIL}`} label="Write an Email">
             <FaEnvelope />
           </SocialIcon>
         </SimpleGrid>
