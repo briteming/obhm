@@ -16,10 +16,12 @@ import { PostType } from '@/types/post';
 import { URL, AUTHOR, OG_IMAGE } from '@/config/config';
 
 import 'prismjs/components/prism-java.min';
+import 'prismjs/components/prism-python.min';
 import 'prismjs/components/prism-javascript.min';
 import 'prismjs/components/prism-typescript.min';
 import 'prismjs/components/prism-jsx.min';
 import 'prismjs/components/prism-tsx.min';
+import 'prismjs/components/prism-c.min';
 import 'prismjs/components/prism-cpp.min';
 
 export default function PostPage({ frontmatter, content, slug, excerpt }: PostType) {
