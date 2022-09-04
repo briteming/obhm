@@ -1,7 +1,8 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import { Heading, Text } from '@chakra-ui/react';
+import { Flex, Heading, Text } from '@chakra-ui/react';
+import { FaShapes } from 'react-icons/fa';
 import { NextSeo } from 'next-seo';
 
 import Layout from '@/components/layout';
@@ -18,9 +19,14 @@ export default function CategoryPage({ posts, categoryName }: { posts: PostType[
           url: URL + `/category/` + categoryName,
         }}
       />
-      <Heading as="h1" fontSize="4xl" pb={0} mb={0}>
-        {categoryName} Archives
-      </Heading>
+      <Flex gap={2} alignItems="center">
+        <Heading as="span" fontSize="3xl" pb={0} mb={0}>
+          <FaShapes />
+        </Heading>
+        <Heading as="h1" fontSize="4xl" pb={0} mb={0}>
+          {categoryName}
+        </Heading>
+      </Flex>
       <Text mt={2} mb={8} fontWeight="semibold">
         총 {posts.length}개의 포스트
       </Text>
