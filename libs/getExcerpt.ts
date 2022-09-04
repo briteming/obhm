@@ -23,7 +23,9 @@ function parseMarkdown(markdownText: string, char: number) {
     .toString()
     .replace(/\[(.*?)\]\((.*?)\)/gim, '$1')
     .toString()
-    .replace(/\n$/gim, '');
+    .replace(/\n$/gim, '')
+    .toString()
+    .replace('---', '');
   return htmlText.trim().slice(0, charLimit);
 }
 

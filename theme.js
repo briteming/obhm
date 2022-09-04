@@ -120,7 +120,7 @@ const customTheme = extendTheme({
         backgroundColor: mode('white.200', 'indigo.900')(props),
       },
       p: {
-        my: '4',
+        mb: '4',
         color: mode('gray.600', 'indigo.300')(props),
         fontFamily: 'body',
         lineHeight: '1.75',
@@ -143,14 +143,12 @@ const customTheme = extendTheme({
         fontWeight: 'bold',
         lineHeight: 'taller',
         mt: '8',
-        mb: '4',
       },
       h3: {
         color: mode('gray.800', 'white')(props),
         fontSize: 'md',
         fontWeight: 'bold',
         mt: '8',
-        mb: '4',
       },
       ul: {
         listStyle: 'square',
@@ -162,13 +160,24 @@ const customTheme = extendTheme({
       iframe: {
         py: '8',
       },
-      blockquote: {
-        fontSize: 'lg',
-        fontStyle: 'italic',
-        fontFamily: 'body',
-      },
       time: {
         color: mode('gray.800', 'white')(props),
+      },
+      blockquote: {
+        padding: '8px 16px;',
+        borderLeftWidth: '5px',
+        borderLeftColor: mode('gray.200', 'indigo.200')(props),
+        p: {
+          margin: 0,
+          color: mode('gray.500', 'indigo.200')(props),
+          fontWeight: 'light',
+          fontFamily: 'body',
+          lineHeight: 'tall',
+        },
+      },
+      hr: {
+        mt: '8',
+        backgroundColor: mode('gray.600', 'indigo.200')(props),
       },
       '*::selection': {
         background: mode('blackAlpha.200', 'whiteAlpha.200')(props),

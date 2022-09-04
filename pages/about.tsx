@@ -14,7 +14,7 @@ export default function AboutPage() {
         </IconButton>
       </Flex>
       <Box>
-        <Text mt={0}>
+        <Text>
           안녕하세요. 이 블로그를 만들고, 글을 쓰는 <strong>이학</strong>이라고 합니다. 처음부터 블로그를 만들고자 했던
           건 아니고.. <code>React</code>, <code>Gatsby.js</code>, <code>Next.js</code>를 공부하다 보니 여기까지 왔네요.
         </Text>

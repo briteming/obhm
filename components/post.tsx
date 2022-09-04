@@ -39,7 +39,7 @@ export default function Post({ post }: { post: PostType }) {
           {post.frontmatter.title}
         </Heading>
       </Link>
-      <Text noOfLines={3} mt={2} mb={3}>
+      <Text noOfLines={3} mt={2} mb={3} lineHeight="tall">
         {post.excerpt}
       </Text>
       <Link href={`/posts/${post.slug}`} passHref>
