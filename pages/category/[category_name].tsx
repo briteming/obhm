@@ -27,6 +27,7 @@ export default function CategoryPage({ posts, categoryName }: { posts: PostType[
           {categoryName}
         </Heading>
       </Flex>
+
       <Text mt={2} mb={8} fontWeight="semibold">
         총 {posts.length}개의 포스트
       </Text>
