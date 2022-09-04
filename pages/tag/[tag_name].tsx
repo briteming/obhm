@@ -1,5 +1,6 @@
 import { NextSeo } from 'next-seo';
-import { Heading, Text } from '@chakra-ui/react';
+import { Flex, Heading, Text } from '@chakra-ui/react';
+import { FaHashtag } from 'react-icons/fa';
 
 import Layout from '@/components/layout';
 import Post from '@/components/post';
@@ -16,9 +17,15 @@ const TagPage = ({ posts, tagName }: { posts: PostType[]; tagName: string }) => 
           url: URL + `/tag/` + tagName,
         }}
       />
-      <Heading as="h1" fontSize="4xl" pb={0} mb={0}>
-        #{tagName}
-      </Heading>
+      <Flex gap={1} alignItems="center">
+        <Heading as="span" fontSize="3xl" pb={0} mb={0}>
+          <FaHashtag />
+        </Heading>
+        <Heading as="h1" fontSize="4xl" pb={0} mb={0}>
+          {tagName}
+        </Heading>
+      </Flex>
+
       <Text mt={2} mb={8} fontWeight="semibold">
         총 {posts.length}개의 포스트
       </Text>
