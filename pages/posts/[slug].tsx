@@ -7,10 +7,11 @@ import matter from 'gray-matter';
 import prism from 'prismjs';
 import { marked } from 'marked';
 import { NextSeo } from 'next-seo';
-import { Heading, UnorderedList, HStack, Wrap, Text } from '@chakra-ui/react';
+import { Box, Heading, UnorderedList, HStack, Wrap, Text } from '@chakra-ui/react';
 
 import Layout from '@/components/layout';
 import Tag from '@/components/tag';
+import Utterances from '@/components/utterances';
 import getExcerpt from '@/libs/getExcerpt';
 import { PostType } from '@/types/post';
 import { URL, AUTHOR, OG_IMAGE } from '@/config/config';
@@ -23,6 +24,7 @@ import 'prismjs/components/prism-jsx.min';
 import 'prismjs/components/prism-tsx.min';
 import 'prismjs/components/prism-c.min';
 import 'prismjs/components/prism-cpp.min';
+import 'prismjs/components/prism-bash.min';
 
 export default function PostPage({ frontmatter, content, slug, excerpt }: PostType) {
   useEffect(() => {
@@ -69,7 +71,7 @@ export default function PostPage({ frontmatter, content, slug, excerpt }: PostTy
       <Heading as="h1" variant="pagetitle" mt="2" mb="8">
         {frontmatter.title}
       </Heading>
-      <div dangerouslySetInnerHTML={{ __html: marked(content) }}></div>
+      <div className="article" dangerouslySetInnerHTML={{ __html: marked(content) }} />
       <UnorderedList mt={8} marginInlineStart="0">
         <Wrap spacing="2">
           {frontmatter.tags &&
@@ -80,6 +82,9 @@ export default function PostPage({ frontmatter, content, slug, excerpt }: PostTy
             ))}
         </Wrap>
       </UnorderedList>
+      <Box mt={8}>
+        <Utterances />
+      </Box>
     </Layout>
   );
 }
