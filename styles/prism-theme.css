@@ -3,8 +3,7 @@ pre[class*='language-'] {
   color: black;
   background: none;
   text-shadow: none;
-  font-family: 'Jetbrains Mono', 'Apple SD Gothic', 'D2Coding', Courier, 'Menlo-Regular', 'Consolas', '맑은고딕',
-    monospace;
+  font-family: 'Jetbrains Mono', 'Apple SD Gothic', 'D2Coding', Courier, 'Menlo-Regular', 'Consolas', 'Pretendard', '맑은고딕', monospace;
   font-size: 0.9rem;
   text-align: left;
   direction: ltr;
@@ -51,7 +50,7 @@ code[class*='language-'] ::selection {
 /* Code blocks */
 pre[class*='language-'] {
   padding: 1em;
-  margin: 0.5em 0;
+  margin: 24px 0;
   overflow: auto;
 }
 
