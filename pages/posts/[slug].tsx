@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import fs from 'fs';
 import path from 'path';
@@ -7,7 +7,7 @@ import matter from 'gray-matter';
 import prism from 'prismjs';
 import { marked } from 'marked';
 import { NextSeo } from 'next-seo';
-import { Box, Heading, UnorderedList, HStack, Wrap, Text } from '@chakra-ui/react';
+import { Heading, UnorderedList, HStack, Wrap, Text } from '@chakra-ui/react';
 
 import Layout from '@/components/layout';
 import Tag from '@/components/tag';
@@ -27,9 +27,14 @@ import 'prismjs/components/prism-cpp.min';
 import 'prismjs/components/prism-bash.min';
 
 export default function PostPage({ frontmatter, content, slug, excerpt }: PostType) {
+  const [colorMode, setColorMode] = useState<string | null>(null);
+
   useEffect(() => {
     prism.highlightAll();
+    setColorMode(document.body.className === 'chakra-ui-light' ? 'github-light' : 'github-dark');
   }, []);
+
+  console.log(colorMode);
 
   return (
     <Layout title={frontmatter.title} description={excerpt}>
@@ -82,9 +87,7 @@ export default function PostPage({ frontmatter, content, slug, excerpt }: PostTy
             ))}
         </Wrap>
       </UnorderedList>
-      <Box mt={8}>
-        <Utterances />
-      </Box>
+      {colorMode && <Utterances theme={colorMode} />}
     </Layout>
   );
 }

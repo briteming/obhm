@@ -124,9 +124,18 @@ const customTheme = extendTheme({
         color: mode('gray.600', 'indigo.300')(props),
         fontFamily: 'body',
         lineHeight: '1.75',
+        transition: 'all 0.3s ease-in-out',
+        a: {
+          color: mode('pink.400', 'pink.300')(props),
+          fontWeight: 'medium',
+          borderBottomColor: 'transparent',
+          borderBottomWidth: '1px',
+          borderBottomStyle: 'solid',
+          _hover: { color: 'pink.400', borderBottomColor: 'pink.400', textDecoration: 'none' },
+        },
       },
       a: {
-        color: mode('gray.800', 'white')(props),
+        color: mode('gray.800', 'whiteAlpha.800')(props),
         fontFamily: 'body',
         transition: 'all 0.3s ease-in-out',
       },
@@ -145,10 +154,21 @@ const customTheme = extendTheme({
         mt: '8',
       },
       h3: {
+        position: 'relative',
+        display: 'inline-block',
         color: mode('gray.800', 'white')(props),
-        fontSize: 'md',
+        fontSize: 'lg',
         fontWeight: 'bold',
-        mt: '8',
+        mt: '6',
+      },
+      'h3::after': {
+        content: `""`,
+        position: 'absolute',
+        left: '0',
+        top: '1.1rem',
+        height: '1px',
+        width: '100%',
+        borderBottom: '0.8rem solid #ED64A630',
       },
       ul: {
         listStyle: 'square',
@@ -156,9 +176,6 @@ const customTheme = extendTheme({
       },
       li: {
         color: mode('gray.600', 'indigo.300')(props),
-      },
-      iframe: {
-        py: '8',
       },
       time: {
         color: mode('gray.800', 'white')(props),
@@ -190,6 +207,20 @@ const customTheme = extendTheme({
       },
       "code[class*='language-']": {
         '.chakra-ui-dark &': { color: 'white' },
+      },
+      '.article': {
+        img: {
+          width: '100%',
+          margin: '24px auto',
+        },
+        code: {
+          fontFamily: 'mono',
+          fontSize: '0.9rem',
+        },
+      },
+      iframe: {
+        margin: 0,
+        padding: 0,
       },
     }),
   },

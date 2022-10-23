@@ -2,16 +2,23 @@ import React, { useRef, createRef, useEffect } from 'react';
 
 import { useColorMode, Box } from '@chakra-ui/react';
 
+type UtterancesType = {
+  theme: string;
+};
+
 const src = 'https://utteranc.es/client.js';
 const utterancesSelector = 'iframe.utterances-frame';
 
-const Utterances: React.FC = () => {
+export default function Utterances({ theme }: UtterancesType) {
   const { colorMode } = useColorMode();
+
   const containerRef = createRef<HTMLDivElement>();
   const isUtterancesCreated = useRef(false);
 
   const repo: string = 'ohprettyhak/blog-comments';
-  let theme: string = colorMode === 'light' ? 'github-light' : 'dark-blue';
+
+  if (colorMode && colorMode != theme.replace('github-', ''))
+    theme = document.body.className === 'chakra-ui-light' ? 'github-light' : 'github-dark';
 
   useEffect(() => {
     if (!repo) return;
@@ -46,11 +53,7 @@ const Utterances: React.FC = () => {
     };
 
     isUtterancesCreated.current ? postThemeMessage() : createUtterancesEl();
-  }, [repo, theme]);
+  }, [containerRef, repo, theme]);
 
-  return <Box ref={containerRef} />;
-};
-
-Utterances.displayName = 'Utterances';
-
-export default Utterances;
+  return <Box mt={8} ref={containerRef} />;
+}
