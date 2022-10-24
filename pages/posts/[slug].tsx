@@ -77,7 +77,7 @@ export default function PostPage({ frontmatter, content, slug, excerpt }: PostTy
         {frontmatter.title}
       </Heading>
       <div className="article" dangerouslySetInnerHTML={{ __html: marked(content) }} />
-      <UnorderedList mt={8} marginInlineStart="0">
+      <UnorderedList mt={12} marginInlineStart="0">
         <Wrap spacing="2">
           {frontmatter.tags &&
             frontmatter.tags.map((tag, index) => (

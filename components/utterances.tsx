@@ -55,5 +55,5 @@ export default function Utterances({ theme }: UtterancesType) {
     isUtterancesCreated.current ? postThemeMessage() : createUtterancesEl();
   }, [containerRef, repo, theme]);
 
-  return <Box mt={8} ref={containerRef} />;
+  return <Box mt={12} ref={containerRef} />;
 }
