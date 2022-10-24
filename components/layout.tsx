@@ -2,7 +2,6 @@ import React from 'react';
 import { Container, Grid, Box, Text, Link } from '@chakra-ui/react';
 import { NextSeo } from 'next-seo';
 
-import customTheme from '@/config/theme';
 import Sidebar from '@/components/sidebar';
 
 const Layout: React.FC<LayoutProps> = ({ title, description, children }) => {

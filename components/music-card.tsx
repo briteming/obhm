@@ -1,7 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import Axios from 'axios';
 import _ from 'lodash';
-import { SimpleGrid, Box, Center, Link, Text, Image, keyframes, Skeleton, SkeletonCircle } from '@chakra-ui/react';
+import {
+  useColorModeValue,
+  SimpleGrid,
+  Box,
+  Center,
+  Link,
+  Text,
+  Image,
+  keyframes,
+  Skeleton,
+  SkeletonCircle,
+} from '@chakra-ui/react';
 
 import { MusicDataType } from '@/types/now';
 
@@ -40,6 +51,9 @@ const MusicCard: React.FC = () => {
       });
   }, []);
 
+  const startColor = useColorModeValue('gray.300', 'gitdark.light');
+  const endColor = useColorModeValue('gray.400', 'gitdark.normal');
+
   return (
     <>
       <Box layerStyle="card">
@@ -48,8 +62,8 @@ const MusicCard: React.FC = () => {
           {!data &&
             _.range(4).map((_, i: number) => (
               <Center mb="auto" textAlign="center" flexDirection="column" key={i}>
-                <SkeletonCircle size="20" />
-                <Skeleton w="50%" mt={2} height={5} />
+                <SkeletonCircle size="20" startColor={startColor} endColor={endColor} />
+                <Skeleton w="50%" mt={2} height={5} startColor={startColor} endColor={endColor} />
               </Center>
             ))}
           {data &&

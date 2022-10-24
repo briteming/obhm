@@ -11,16 +11,10 @@ const customTheme = extendTheme({
     mono: 'JetBrains Mono, SFMono-Regular, Pretendard, Menlo, Consolas, PT Mono, Liberation Mono, Courier, monospace',
   },
   colors: {
-    indigo: {
-      100: '#EAF4FA',
-      200: '#D6E8F6',
-      300: '#BBBFCC',
-      400: '#9AB2CD',
-      500: '#748cad',
-      600: '#546D94',
-      700: '#3A507C',
-      800: '#253764',
-      900: '#1A2025',
+    gitdark: {
+      light: '#343434',
+      normal: '#202020',
+      press: '#181818',
     },
   },
   components: {
@@ -93,7 +87,7 @@ const customTheme = extendTheme({
             backgroundColor: 'gray.100',
             _hover: { backgroundColor: 'pink.400', color: 'white' },
             '.chakra-ui-dark &': {
-              backgroundColor: 'gray.700',
+              backgroundColor: 'whiteAlpha.200',
               _hover: { backgroundColor: 'pink.400', color: 'white' },
             },
           },
@@ -110,18 +104,18 @@ const customTheme = extendTheme({
       backgroundColor: 'gray.50',
       transition: 'all 0.2s ease-in-out',
       _hover: { boxShadow: 'base' },
-      '.chakra-ui-dark &': { backgroundColor: 'gray.700' },
+      '.chakra-ui-dark &': { backgroundColor: 'whiteAlpha.100' },
     },
   },
   styles: {
     global: (props) => ({
       body: {
         lineHeight: 'taller',
-        backgroundColor: mode('white.200', 'indigo.900')(props),
+        backgroundColor: mode('white.200', 'gitdark.normal')(props),
       },
       p: {
         mb: '4',
-        color: mode('gray.600', 'indigo.300')(props),
+        color: mode('gray.600', 'gray.200')(props),
         fontFamily: 'body',
         lineHeight: '1.75',
         transition: 'all 0.3s ease-in-out',
@@ -175,7 +169,7 @@ const customTheme = extendTheme({
         my: '2',
       },
       li: {
-        color: mode('gray.600', 'indigo.300')(props),
+        color: mode('gray.600', 'gray.300')(props),
       },
       time: {
         color: mode('gray.800', 'white')(props),
@@ -183,10 +177,10 @@ const customTheme = extendTheme({
       blockquote: {
         padding: '8px 16px;',
         borderLeftWidth: '5px',
-        borderLeftColor: mode('gray.200', 'indigo.200')(props),
+        borderLeftColor: mode('gray.200', 'gray.200')(props),
         p: {
           margin: 0,
-          color: mode('gray.500', 'indigo.200')(props),
+          color: mode('gray.500', 'gray.200')(props),
           fontWeight: 'light',
           fontFamily: 'body',
           lineHeight: 'tall',
@@ -194,7 +188,7 @@ const customTheme = extendTheme({
       },
       hr: {
         mt: '8',
-        backgroundColor: mode('gray.600', 'indigo.200')(props),
+        backgroundColor: mode('gray.600', 'gray.200')(props),
       },
       '*::selection': {
         background: mode('blackAlpha.200', 'whiteAlpha.200')(props),

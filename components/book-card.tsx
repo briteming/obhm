@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Axios from 'axios';
 import _ from 'lodash';
-import { Box, Link, Text, Skeleton } from '@chakra-ui/react';
+import { useColorModeValue, Box, Link, Text, Skeleton } from '@chakra-ui/react';
 import { ExternalLinkIcon } from '@chakra-ui/icons';
 
 import { BookDataType } from '@/types/now';
@@ -21,6 +21,9 @@ const BookCard: React.FC = () => {
       });
   }, []);
 
+  const startColor = useColorModeValue('gray.300', 'gitdark.light');
+  const endColor = useColorModeValue('gray.400', 'gitdark.normal');
+
   return (
     <>
       <Box layerStyle="card">
@@ -28,8 +31,8 @@ const BookCard: React.FC = () => {
         {!data
           ? _.range(4).map((_, i: number) => (
               <Box key={i} py={2}>
-                <Skeleton height={5} />
-                <Skeleton height={3.5} mt={2.5} />
+                <Skeleton height={5} startColor={startColor} endColor={endColor} />
+                <Skeleton height={3.5} mt={2.5} startColor={startColor} endColor={endColor} />
               </Box>
             ))
           : data.map((book: BookDataType, i: number) => (

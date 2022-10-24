@@ -12,7 +12,7 @@ import SEO from '@/config/seo-config';
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
-      <NextNProgress height={3} color="#4A5568" options={{ showSpinner: false }} />
+      <NextNProgress height={2} color="#4A5568" options={{ showSpinner: false }} />
       <ChakraProvider resetCSS={true} theme={customTheme}>
         <DefaultSeo {...SEO} />
         <Component {...pageProps} />
