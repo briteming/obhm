@@ -9,7 +9,7 @@ import '@/styles/prism-theme.css';
 import customTheme from '@/config/theme';
 import SEO from '@/config/seo-config';
 
-function MyApp({ Component, pageProps }: AppProps) {
+export default function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <NextNProgress height={2} color="#4A5568" options={{ showSpinner: false }} />
@@ -20,5 +20,3 @@ function MyApp({ Component, pageProps }: AppProps) {
     </>
   );
 }
-
-export default MyApp;
