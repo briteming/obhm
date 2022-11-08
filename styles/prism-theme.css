@@ -5,7 +5,7 @@ pre[class*='language-'] {
   text-shadow: none;
   font-family: 'Jetbrains Mono', 'Apple SD Gothic', 'D2Coding', Courier, 'Menlo-Regular', 'Consolas', 'Pretendard',
     '맑은고딕', monospace;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   text-align: left;
   direction: ltr;
   white-space: pre;

@@ -25,6 +25,7 @@ import 'prismjs/components/prism-tsx.min';
 import 'prismjs/components/prism-c.min';
 import 'prismjs/components/prism-cpp.min';
 import 'prismjs/components/prism-bash.min';
+import 'prismjs/components/prism-json.min';
 
 export default function PostPage({ frontmatter, content, slug, excerpt }: PostType) {
   const [colorMode, setColorMode] = useState<string | null>(null);
@@ -33,8 +34,6 @@ export default function PostPage({ frontmatter, content, slug, excerpt }: PostTy
     prism.highlightAll();
     setColorMode(document.body.className === 'chakra-ui-light' ? 'github-light' : 'github-dark');
   }, []);
-
-  console.log(colorMode);
 
   return (
     <Layout title={frontmatter.title} description={excerpt}>

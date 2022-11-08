@@ -164,6 +164,23 @@ const customTheme = extendTheme({
         width: '100%',
         borderBottom: '0.8rem solid #ED64A630',
       },
+      h4: {
+        position: 'relative',
+        display: 'inline-block',
+        color: mode('gray.800', 'white')(props),
+        fontSize: '1.05rem',
+        fontWeight: 'bold',
+        mt: '4',
+      },
+      'h4::after': {
+        content: `""`,
+        position: 'absolute',
+        left: '0',
+        top: '1.1rem',
+        height: '1px',
+        width: '100%',
+        borderBottom: '0.6rem solid #ED64A630',
+      },
       ul: {
         listStyle: 'square',
         my: '2',
@@ -209,7 +226,7 @@ const customTheme = extendTheme({
         },
         code: {
           fontFamily: 'mono',
-          fontSize: '0.9rem',
+          fontSize: '0.85rem',
         },
       },
       iframe: {
